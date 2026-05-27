@@ -3,7 +3,7 @@
 A large-scale, openly available industrial time-series dataset for training foundation models on manufacturing processes. FactoryNet spans 23,000+ episodes across 6 robotic embodiments, covering 28 anomaly types and 3 industrial tasks.
 
 **Dataset**: [huggingface.co/datasets/Forgis/FactoryNet](https://huggingface.co/datasets/Forgis/FactoryNet)  
-**Paper**: [arXiv:2605.09081](https://arxiv.org/abs/2605.09081)
+**Paper**: [arXiv:2605.09081](https://arxiv.org/abs/2605.09081) | Accepted at ICML 2026 Workshop on Foundation Models for Structured Data (FMSD)
 **License**: MIT (lab + synthetic data), original licenses for open-source subsets
 
 ## Dataset Overview
