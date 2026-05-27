@@ -1,0 +1,6 @@
+[project]
+name = "xelerit-base"
+version = "0.1.0"
+description = "A base repository for Xelerit projects."
+authors = ["Xelerit"]
+requires-python = ">=3.8" 

@@ -1,0 +1,185 @@
+# FactoryNet Symptom Taxonomy
+# Hierarchical classification of observable symptoms
+#
+# Synset format: Y.{modality}.{pattern}.{detail}
+# Examples:
+#   Y.vib.hig.bea.bpfo - High vibration at BPFO frequency
+#   Y.the.loc - Localized temperature increase
+#   Y.aco.imp - Acoustic impulse sounds
+
+version: "1.0"
+schema_version: "2024.1"
+
+categories:
+  vib:
+    name: "Vibration"
+    description: "Vibration-based symptoms"
+    patterns:
+      hig:
+        name: "High Vibration"
+        description: "Elevated vibration levels"
+        details:
+          general:
+            synset: "Y.vib.hig"
+            name: "High Overall Vibration"
+          1x:
+            synset: "Y.vib.hig.1x"
+            name: "High 1X Vibration"
+            description: "Elevated vibration at shaft speed"
+            associated_faults: ["imbalance", "bent_shaft"]
+          2x:
+            synset: "Y.vib.hig.2x"
+            name: "High 2X Vibration"
+            description: "Elevated vibration at 2x shaft speed"
+            associated_faults: ["misalignment", "looseness"]
+          bea:
+            name: "Bearing Frequencies"
+            specific:
+              bpfo:
+                synset: "Y.vib.hig.bea.bpfo"
+                name: "High BPFO Amplitude"
+                description: "Ball Pass Frequency Outer race"
+              bpfi:
+                synset: "Y.vib.hig.bea.bpfi"
+                name: "High BPFI Amplitude"
+                description: "Ball Pass Frequency Inner race"
+              bsf:
+                synset: "Y.vib.hig.bea.bsf"
+                name: "High BSF Amplitude"
+                description: "Ball Spin Frequency"
+              ftf:
+                synset: "Y.vib.hig.bea.ftf"
+                name: "High FTF Amplitude"
+                description: "Fundamental Train Frequency"
+          gea:
+            name: "Gear Mesh Frequencies"
+            specific:
+              gmf:
+                synset: "Y.vib.hig.gea.gmf"
+                name: "High GMF Amplitude"
+                description: "Gear Mesh Frequency"
+              sid:
+                synset: "Y.vib.hig.gea.sid"
+                name: "GMF Sidebands"
+                description: "Sidebands around gear mesh frequency"
+      imp:
+        synset: "Y.vib.imp"
+        name: "Impulsive Vibration"
+        description: "Periodic impulses/impacts"
+        indicators:
+          - "High kurtosis"
+          - "Periodic spikes in time domain"
+      mod:
+        synset: "Y.vib.mod"
+        name: "Modulated Vibration"
+        description: "Amplitude or frequency modulation"
+      sub:
+        synset: "Y.vib.sub"
+        name: "Subsynchronous Vibration"
+        description: "Vibration below shaft speed"
+        associated_faults: ["oil_whirl", "cage_fault"]
+      cha:
+        synset: "Y.vib.cha"
+        name: "Changing Vibration"
+        description: "Vibration amplitude trending upward"
+
+  the:
+    name: "Thermal"
+    description: "Temperature-based symptoms"
+    patterns:
+      hig:
+        synset: "Y.the.hig"
+        name: "High Temperature"
+        description: "Overall elevated temperature"
+      loc:
+        synset: "Y.the.loc"
+        name: "Localized Heat"
+        description: "Hot spot in specific location"
+      ris:
+        synset: "Y.the.ris"
+        name: "Rising Temperature"
+        description: "Temperature trend increasing"
+      flu:
+        synset: "Y.the.flu"
+        name: "Temperature Fluctuation"
+        description: "Unstable temperature"
+
+  aco:
+    name: "Acoustic"
+    description: "Sound-based symptoms"
+    patterns:
+      imp:
+        synset: "Y.aco.imp"
+        name: "Impact Sounds"
+        description: "Periodic clicking or knocking"
+      gri:
+        synset: "Y.aco.gri"
+        name: "Grinding Sound"
+        description: "Continuous grinding noise"
+      whi:
+        synset: "Y.aco.whi"
+        name: "Whining Sound"
+        description: "High-pitched whine"
+      rum:
+        synset: "Y.aco.rum"
+        name: "Rumbling Sound"
+        description: "Low-frequency rumbling"
+
+  vis:
+    name: "Visual"
+    description: "Visually observable symptoms"
+    patterns:
+      wea:
+        synset: "Y.vis.wea"
+        name: "Visible Wear"
+        description: "Observable surface wear"
+      deb:
+        synset: "Y.vis.deb"
+        name: "Debris"
+        description: "Metal particles or debris"
+      lea:
+        synset: "Y.vis.lea"
+        name: "Leakage"
+        description: "Oil or lubricant leakage"
+      dis:
+        synset: "Y.vis.dis"
+        name: "Discoloration"
+        description: "Heat discoloration"
+      cra:
+        synset: "Y.vis.cra"
+        name: "Visible Crack"
+        description: "Observable crack or fracture"
+
+  cur:
+    name: "Current"
+    description: "Motor current symptoms"
+    patterns:
+      hig:
+        synset: "Y.cur.hig"
+        name: "High Current"
+        description: "Elevated motor current"
+      sid:
+        synset: "Y.cur.sid"
+        name: "Current Sidebands"
+        description: "Sidebands in current spectrum"
+      unb:
+        synset: "Y.cur.unb"
+        name: "Current Imbalance"
+        description: "Phase current imbalance"
+
+  per:
+    name: "Performance"
+    description: "Performance degradation symptoms"
+    patterns:
+      red:
+        synset: "Y.per.red"
+        name: "Reduced Performance"
+        description: "Decreased output or efficiency"
+      err:
+        synset: "Y.per.err"
+        name: "Increased Errors"
+        description: "More frequent errors or rejects"
+      cyc:
+        synset: "Y.per.cyc"
+        name: "Longer Cycle Time"
+        description: "Increased operation time"

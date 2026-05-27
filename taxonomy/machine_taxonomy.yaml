@@ -1,0 +1,194 @@
+# FactoryNet Machine Taxonomy
+# Hierarchical classification of industrial machines and equipment
+#
+# Synset format: M.{category}.{subcategory}.{type}.{manufacturer}.{model}
+# Examples:
+#   M.rob.col.ur.ur3 - UR3 collaborative robot
+#   M.rob.ind.art.6ax.fanuc.m20 - FANUC M-20 industrial robot
+#   M.tst.bea.cwru - CWRU bearing test rig
+
+version: "1.0"
+schema_version: "2024.1"
+
+# Top-level categories
+categories:
+  rob:
+    name: "Robots"
+    description: "Industrial and collaborative robots"
+    subcategories:
+      col:
+        name: "Collaborative Robots (Cobots)"
+        description: "Robots designed for direct human interaction"
+        types:
+          ur:
+            name: "Universal Robots"
+            models:
+              ur3:
+                synset: "M.rob.col.ur.ur3"
+                name: "UR3"
+                payload_kg: 3
+                reach_mm: 500
+              ur3e:
+                synset: "M.rob.col.ur.ur3e"
+                name: "UR3e"
+                payload_kg: 3
+                reach_mm: 500
+                description: "e-Series collaborative robot"
+              ur5:
+                synset: "M.rob.col.ur.ur5"
+                name: "UR5"
+                payload_kg: 5
+                reach_mm: 850
+              ur10:
+                synset: "M.rob.col.ur.ur10"
+                name: "UR10"
+                payload_kg: 10
+                reach_mm: 1300
+          franka:
+            name: "Franka Emika"
+            models:
+              panda:
+                synset: "M.rob.col.franka.panda"
+                name: "Panda"
+                payload_kg: 3
+                reach_mm: 855
+
+      ind:
+        name: "Industrial Robots"
+        description: "High-payload industrial manipulators"
+        types:
+          scara:
+            name: "SCARA Robots"
+            description: "Selective Compliance Assembly Robot Arm"
+            models:
+              generic:
+                synset: "M.rob.ind.scara"
+                name: "SCARA Robot (Generic)"
+              phm2021:
+                synset: "M.rob.ind.scara.phm2021"
+                name: "PHM 2021 SCARA"
+                description: "4-axis SCARA fuse feeder from PHM 2021 challenge"
+                axes: 4
+          art:
+            name: "Articulated Robots"
+            subtypes:
+              6ax:
+                name: "6-Axis Articulated"
+                manufacturers:
+                  fanuc:
+                    name: "FANUC"
+                    models:
+                      m20:
+                        synset: "M.rob.ind.art.6ax.fanuc.m20"
+                        name: "M-20iD/25"
+                        payload_kg: 25
+                      lr_mate:
+                        synset: "M.rob.ind.art.6ax.fanuc.lr_mate"
+                        name: "LR Mate 200iD"
+                        payload_kg: 7
+                  kuka:
+                    name: "KUKA"
+                    models:
+                      kr10:
+                        synset: "M.rob.ind.art.6ax.kuka.kr10"
+                        name: "KR 10 R1100-2"
+                        payload_kg: 10
+                      kr210:
+                        synset: "M.rob.ind.art.6ax.kuka.kr210"
+                        name: "KR 210 R2700-2"
+                        payload_kg: 210
+                  abb:
+                    name: "ABB"
+                    models:
+                      irb2600:
+                        synset: "M.rob.ind.art.6ax.abb.irb2600"
+                        name: "IRB 2600"
+                        payload_kg: 20
+                      irb6700:
+                        synset: "M.rob.ind.art.6ax.abb.irb6700"
+                        name: "IRB 6700"
+                        payload_kg: 300
+
+  cnc:
+    name: "CNC Machines"
+    description: "Computer Numerically Controlled machine tools"
+    subcategories:
+      mill:
+        name: "Milling Machines"
+        types:
+          vmc:
+            name: "Vertical Machining Center"
+            synset: "M.cnc.mill.vmc"
+          hmc:
+            name: "Horizontal Machining Center"
+            synset: "M.cnc.mill.hmc"
+          5ax:
+            name: "5-Axis Machining Center"
+            synset: "M.cnc.mill.5ax"
+      lathe:
+        name: "Lathes"
+        types:
+          turn:
+            name: "CNC Turning Center"
+            synset: "M.cnc.lathe.turn"
+          swiss:
+            name: "Swiss-Type Lathe"
+            synset: "M.cnc.lathe.swiss"
+
+  tst:
+    name: "Test Equipment"
+    description: "Testing and research equipment"
+    subcategories:
+      bea:
+        name: "Bearing Test Rigs"
+        description: "Equipment for bearing fault diagnosis research"
+        types:
+          cwru:
+            synset: "M.tst.bea.cwru"
+            name: "CWRU Bearing Test Rig"
+            description: "Case Western Reserve University bearing dataset test rig"
+            motor_hp: 2
+            bearing_type: "SKF 6205-2RS"
+          paderborn:
+            synset: "M.tst.bea.paderborn"
+            name: "Paderborn Bearing Test Rig"
+            description: "KAt-DataCenter modular bearing test rig"
+          xjtu:
+            synset: "M.tst.bea.xjtu"
+            name: "XJTU-SY Bearing Test Rig"
+            description: "Xi'an Jiaotong University run-to-failure test rig"
+          ims:
+            synset: "M.tst.bea.ims"
+            name: "NASA IMS Bearing Test Rig"
+            description: "NASA IMS bearing degradation test facility"
+      rot:
+        name: "Rotating Machinery Test Rigs"
+        types:
+          mafaulda:
+            synset: "M.tst.rot.mafaulda"
+            name: "MAFAULDA Test Rig"
+            description: "Machinery Fault Database rotating machinery simulator"
+      cnc:
+        name: "CNC Testing Equipment"
+        types:
+          phm2010:
+            synset: "M.tst.cnc.phm2010"
+            name: "PHM 2010 CNC Milling Setup"
+            description: "PHM 2010 Data Challenge CNC tool wear test setup"
+
+  sen:
+    name: "Sensors"
+    description: "Standalone sensor systems"
+    subcategories:
+      acc:
+        synset: "M.sen.acc"
+        name: "Accelerometer"
+        description: "Vibration measurement sensor"
+      mic:
+        synset: "M.sen.mic"
+        name: "Microphone"
+        description: "Acoustic emission sensor"
+      tmp:
+        synset: "M.sen.tmp"
+        name: "Temperature Sensor"
+        description: "Temperature measurement sensor"
