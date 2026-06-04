@@ -1,0 +1,200 @@
+# FactoryNet Cause Taxonomy
+# Hierarchical classification of fault root causes
+#
+# Synset format: C.{category}.{type}.{subtype}
+# Examples:
+#   C.mai.ina.lub - Inadequate lubrication from maintenance issues
+#   C.ope.ovl.con - Continuous overload from operation
+#   C.env.con.dus - Dust contamination from environment
+
+version: "1.0"
+schema_version: "2024.1"
+
+categories:
+  mai:
+    name: "Maintenance Related"
+    description: "Causes related to maintenance practices"
+    types:
+      ina:
+        name: "Inadequate Maintenance"
+        subtypes:
+          lub:
+            synset: "C.mai.ina.lub"
+            name: "Inadequate Lubrication"
+            description: "Insufficient or improper lubrication"
+            remediation: "Establish proper lubrication schedule"
+          ins:
+            synset: "C.mai.ina.ins"
+            name: "Inadequate Inspection"
+            description: "Missing or insufficient inspections"
+          cle:
+            synset: "C.mai.ina.cle"
+            name: "Inadequate Cleaning"
+            description: "Insufficient cleaning/contamination removal"
+      imp:
+        name: "Improper Maintenance"
+        subtypes:
+          mou:
+            synset: "C.mai.imp.mou"
+            name: "Improper Mounting"
+            description: "Incorrect installation or mounting"
+          too:
+            synset: "C.mai.imp.too"
+            name: "Improper Tooling"
+            description: "Wrong tools used during maintenance"
+          tor:
+            synset: "C.mai.imp.tor"
+            name: "Improper Torque"
+            description: "Incorrect tightening torque"
+          ali:
+            synset: "C.mai.imp.ali"
+            name: "Improper Alignment"
+            description: "Misalignment during assembly"
+      del:
+        synset: "C.mai.del"
+        name: "Delayed Maintenance"
+        description: "Overdue scheduled maintenance"
+
+  ope:
+    name: "Operation Related"
+    description: "Causes related to operational practices"
+    types:
+      ovl:
+        name: "Overload"
+        subtypes:
+          con:
+            synset: "C.ope.ovl.con"
+            name: "Continuous Overload"
+            description: "Sustained operation above rated capacity"
+          tra:
+            synset: "C.ope.ovl.tra"
+            name: "Transient Overload"
+            description: "Shock loads or sudden impacts"
+          cyc:
+            synset: "C.ope.ovl.cyc"
+            name: "Cyclic Overload"
+            description: "Repeated load cycling"
+      mis:
+        name: "Misuse"
+        subtypes:
+          spe:
+            synset: "C.ope.mis.spe"
+            name: "Overspeed"
+            description: "Operation above rated speed"
+          mod:
+            synset: "C.ope.mis.mod"
+            name: "Wrong Operating Mode"
+            description: "Incorrect operational settings"
+      str:
+        synset: "C.ope.str"
+        name: "Frequent Starts/Stops"
+        description: "Excessive start/stop cycles"
+
+  env:
+    name: "Environmental"
+    description: "Causes related to operating environment"
+    types:
+      con:
+        name: "Contamination"
+        subtypes:
+          dus:
+            synset: "C.env.con.dus"
+            name: "Dust Contamination"
+            description: "Airborne particle ingress"
+          wat:
+            synset: "C.env.con.wat"
+            name: "Water/Moisture"
+            description: "Water or humidity ingress"
+          che:
+            synset: "C.env.con.che"
+            name: "Chemical Contamination"
+            description: "Chemical exposure"
+          par:
+            synset: "C.env.con.par"
+            name: "Particle Contamination"
+            description: "Foreign particle ingress"
+      tem:
+        name: "Temperature"
+        subtypes:
+          hig:
+            synset: "C.env.tem.hig"
+            name: "High Ambient Temperature"
+            description: "Excessive environmental heat"
+          low:
+            synset: "C.env.tem.low"
+            name: "Low Ambient Temperature"
+            description: "Cold environment"
+          flu:
+            synset: "C.env.tem.flu"
+            name: "Temperature Fluctuation"
+            description: "Thermal cycling"
+      cor:
+        synset: "C.env.cor"
+        name: "Corrosive Environment"
+        description: "Exposure to corrosive atmosphere"
+
+  des:
+    name: "Design Related"
+    description: "Causes related to design or manufacturing"
+    types:
+      def:
+        name: "Design Deficiency"
+        subtypes:
+          und:
+            synset: "C.des.def.und"
+            name: "Under-designed"
+            description: "Component capacity insufficient"
+          mat:
+            synset: "C.des.def.mat"
+            name: "Material Selection"
+            description: "Inappropriate material choice"
+      mfg:
+        name: "Manufacturing Defect"
+        subtypes:
+          inc:
+            synset: "C.des.mfg.inc"
+            name: "Inclusion"
+            description: "Material inclusions"
+          sur:
+            synset: "C.des.mfg.sur"
+            name: "Surface Defect"
+            description: "Surface finish issues"
+          dim:
+            synset: "C.des.mfg.dim"
+            name: "Dimensional Error"
+            description: "Out of tolerance"
+
+  age:
+    name: "Age Related"
+    description: "Natural aging and wear-out"
+    types:
+      fat:
+        synset: "C.age.fat"
+        name: "Fatigue"
+        description: "Material fatigue from cyclic stress"
+      wea:
+        synset: "C.age.wea"
+        name: "Normal Wear"
+        description: "Expected wear over service life"
+      deg:
+        synset: "C.age.deg"
+        name: "Material Degradation"
+        description: "Age-related material breakdown"
+
+  tes:
+    name: "Testing/Research"
+    description: "Causes specific to testing contexts"
+    types:
+      art:
+        synset: "C.tes.art"
+        name: "Artificial Defect"
+        description: "Intentionally seeded defect for research"
+      acc:
+        synset: "C.tes.acc"
+        name: "Accelerated Testing"
+        description: "Accelerated life test conditions"
+
+  unk:
+    synset: "C.unk"
+    name: "Unknown"
+    description: "Unknown or undetermined cause"

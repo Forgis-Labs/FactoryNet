@@ -1,0 +1,190 @@
+# FactoryNet State Taxonomy
+# Hierarchical classification of machine states and fault conditions
+#
+# Synset format: S.{category}.{type}.{subtype}.{detail}
+# Examples:
+#   S.nom.run - Normal running state
+#   S.flt.mec.wea.bea.inn - Inner race bearing fault
+#   S.deg.wea.bea - Bearing degradation (general)
+
+version: "1.0"
+schema_version: "2024.1"
+
+categories:
+  nom:
+    name: "Nominal"
+    description: "Normal operating states"
+    types:
+      run:
+        synset: "S.nom.run"
+        name: "Running"
+        description: "Normal operation"
+      idl:
+        synset: "S.nom.idl"
+        name: "Idle"
+        description: "Powered but not operating"
+      stp:
+        synset: "S.nom.stp"
+        name: "Stopped"
+        description: "Intentionally stopped"
+      wrm:
+        synset: "S.nom.wrm"
+        name: "Warm-up"
+        description: "Warming up phase"
+
+  flt:
+    name: "Fault"
+    description: "Active fault conditions"
+    types:
+      mec:
+        name: "Mechanical Faults"
+        subtypes:
+          wea:
+            name: "Wear"
+            details:
+              bea:
+                name: "Bearing Wear"
+                specific:
+                  inn:
+                    synset: "S.flt.mec.wea.bea.inn"
+                    name: "Inner Race Fault"
+                    description: "Bearing inner race defect"
+                    characteristic_frequency: "BPFI"
+                  out:
+                    synset: "S.flt.mec.wea.bea.out"
+                    name: "Outer Race Fault"
+                    description: "Bearing outer race defect"
+                    characteristic_frequency: "BPFO"
+                  bal:
+                    synset: "S.flt.mec.wea.bea.bal"
+                    name: "Ball/Roller Fault"
+                    description: "Rolling element defect"
+                    characteristic_frequency: "BSF"
+                  cag:
+                    synset: "S.flt.mec.wea.bea.cag"
+                    name: "Cage Fault"
+                    description: "Bearing cage defect"
+                    characteristic_frequency: "FTF"
+              gea:
+                synset: "S.flt.mec.wea.gea"
+                name: "Gear Wear"
+                description: "Gear tooth wear or damage"
+              too:
+                synset: "S.flt.mec.wea.too"
+                name: "Tool Wear"
+                description: "Cutting tool wear"
+          imb:
+            synset: "S.flt.mec.imb"
+            name: "Imbalance"
+            description: "Rotating imbalance"
+            characteristic: "1X shaft speed"
+          mis:
+            synset: "S.flt.mec.mis"
+            name: "Misalignment"
+            description: "Shaft misalignment"
+            characteristic: "2X shaft speed"
+            subtypes:
+              ang:
+                synset: "S.flt.mec.mis.ang"
+                name: "Angular Misalignment"
+              par:
+                synset: "S.flt.mec.mis.par"
+                name: "Parallel Misalignment"
+          loo:
+            synset: "S.flt.mec.loo"
+            name: "Looseness"
+            description: "Mechanical looseness"
+            subtypes:
+              str:
+                synset: "S.flt.mec.loo.str"
+                name: "Structural Looseness"
+              rot:
+                synset: "S.flt.mec.loo.rot"
+                name: "Rotating Looseness"
+          rub:
+            synset: "S.flt.mec.rub"
+            name: "Rubbing"
+            description: "Rotor-stator rubbing"
+          cra:
+            synset: "S.flt.mec.cra"
+            name: "Cracking"
+            description: "Shaft or component crack"
+
+      ele:
+        name: "Electrical Faults"
+        subtypes:
+          pow:
+            name: "Power Issues"
+            types:
+              ovv:
+                synset: "S.flt.ele.pow.ovv"
+                name: "Overvoltage"
+              unv:
+                synset: "S.flt.ele.pow.unv"
+                name: "Undervoltage"
+              pha:
+                synset: "S.flt.ele.pow.pha"
+                name: "Phase Imbalance"
+          mot:
+            name: "Motor Faults"
+            types:
+              brk:
+                synset: "S.flt.ele.mot.brk"
+                name: "Broken Rotor Bar"
+              ecc:
+                synset: "S.flt.ele.mot.ecc"
+                name: "Eccentricity"
+              win:
+                synset: "S.flt.ele.mot.win"
+                name: "Winding Fault"
+
+      the:
+        name: "Thermal Faults"
+        subtypes:
+          ovh:
+            synset: "S.flt.the.ovh"
+            name: "Overheating"
+            description: "Excessive temperature"
+          hts:
+            synset: "S.flt.the.hts"
+            name: "Hot Spot"
+            description: "Localized high temperature"
+
+      lub:
+        name: "Lubrication Faults"
+        subtypes:
+          low:
+            synset: "S.flt.lub.low"
+            name: "Low Lubrication"
+          con:
+            synset: "S.flt.lub.con"
+            name: "Contaminated Lubrication"
+          deg:
+            synset: "S.flt.lub.deg"
+            name: "Degraded Lubrication"
+
+  deg:
+    name: "Degradation"
+    description: "Progressive degradation states (not yet fault)"
+    types:
+      wea:
+        name: "Wear Progression"
+        subtypes:
+          bea:
+            synset: "S.deg.wea.bea"
+            name: "Bearing Degradation"
+          gea:
+            synset: "S.deg.wea.gea"
+            name: "Gear Degradation"
+          too:
+            synset: "S.deg.wea.too"
+            name: "Tool Degradation"
+      fat:
+        synset: "S.deg.fat"
+        name: "Fatigue"
+        description: "Material fatigue progression"
+
+  unk:
+    synset: "S.unk"
+    name: "Unknown"
+    description: "Unknown or unclassified state"

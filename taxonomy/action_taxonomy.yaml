@@ -1,0 +1,220 @@
+# FactoryNet Action Taxonomy
+# Hierarchical classification of maintenance and corrective actions
+#
+# Synset format: A.{category}.{type}.{subtype}.{detail}
+# Examples:
+#   A.dia.ins.vib - Vibration inspection diagnostic
+#   A.rep.rep.bea.6205 - Replace bearing 6205
+#   A.pre.lub.gre - Preventive grease lubrication
+
+version: "1.0"
+schema_version: "2024.1"
+
+categories:
+  dia:
+    name: "Diagnostic"
+    description: "Diagnostic and inspection actions"
+    types:
+      ins:
+        name: "Inspection"
+        subtypes:
+          vib:
+            synset: "A.dia.ins.vib"
+            name: "Vibration Inspection"
+            description: "Measure and analyze vibration"
+            tools: ["accelerometer", "vibration_analyzer"]
+          the:
+            synset: "A.dia.ins.the"
+            name: "Thermal Inspection"
+            description: "Temperature measurement or thermography"
+            tools: ["thermometer", "thermal_camera"]
+          vis:
+            synset: "A.dia.ins.vis"
+            name: "Visual Inspection"
+            description: "Visual examination"
+            tools: ["flashlight", "borescope"]
+          aco:
+            synset: "A.dia.ins.aco"
+            name: "Acoustic Inspection"
+            description: "Ultrasonic or acoustic analysis"
+            tools: ["ultrasonic_detector", "microphone"]
+          oil:
+            synset: "A.dia.ins.oil"
+            name: "Oil Analysis"
+            description: "Lubricant condition analysis"
+            tools: ["oil_sampler", "spectrometer"]
+          cur:
+            synset: "A.dia.ins.cur"
+            name: "Current Analysis"
+            description: "Motor current signature analysis"
+            tools: ["current_clamp", "analyzer"]
+      mon:
+        name: "Monitoring"
+        subtypes:
+          con:
+            synset: "A.dia.mon.con"
+            name: "Continuous Monitoring"
+            description: "Set up continuous condition monitoring"
+          per:
+            synset: "A.dia.mon.per"
+            name: "Periodic Monitoring"
+            description: "Establish periodic measurement schedule"
+          tre:
+            synset: "A.dia.mon.tre"
+            name: "Trend Analysis"
+            description: "Track parameter trends over time"
+
+  rep:
+    name: "Repair"
+    description: "Corrective repair actions"
+    types:
+      rep:
+        name: "Replacement"
+        subtypes:
+          bea:
+            name: "Bearing Replacement"
+            components:
+              6205:
+                synset: "A.rep.rep.bea.6205"
+                name: "Replace SKF 6205"
+                description: "Replace deep groove ball bearing 6205"
+              6206:
+                synset: "A.rep.rep.bea.6206"
+                name: "Replace SKF 6206"
+              6208:
+                synset: "A.rep.rep.bea.6208"
+                name: "Replace SKF 6208"
+              gen:
+                synset: "A.rep.rep.bea.gen"
+                name: "Replace Bearing (General)"
+                description: "General bearing replacement"
+          gea:
+            synset: "A.rep.rep.gea"
+            name: "Replace Gear"
+            description: "Replace damaged gear"
+          sea:
+            synset: "A.rep.rep.sea"
+            name: "Replace Seal"
+            description: "Replace damaged seal"
+          cou:
+            synset: "A.rep.rep.cou"
+            name: "Replace Coupling"
+            description: "Replace shaft coupling"
+          mot:
+            synset: "A.rep.rep.mot"
+            name: "Replace Motor"
+            description: "Replace electric motor"
+          too:
+            synset: "A.rep.rep.too"
+            name: "Replace Tool"
+            description: "Replace cutting tool"
+      adj:
+        name: "Adjustment"
+        subtypes:
+          ali:
+            synset: "A.rep.adj.ali"
+            name: "Realign"
+            description: "Correct shaft alignment"
+            tools: ["laser_aligner", "dial_indicator"]
+          bal:
+            synset: "A.rep.adj.bal"
+            name: "Balance"
+            description: "Dynamic or static balancing"
+            tools: ["balancing_machine"]
+          ten:
+            synset: "A.rep.adj.ten"
+            name: "Adjust Tension"
+            description: "Adjust belt or chain tension"
+          cle:
+            synset: "A.rep.adj.cle"
+            name: "Adjust Clearance"
+            description: "Adjust component clearances"
+          tor:
+            synset: "A.rep.adj.tor"
+            name: "Retorque"
+            description: "Retighten to specification"
+      reb:
+        synset: "A.rep.reb"
+        name: "Rebuild"
+        description: "Component rebuild or overhaul"
+      wel:
+        synset: "A.rep.wel"
+        name: "Weld Repair"
+        description: "Welding repair of cracked components"
+
+  pre:
+    name: "Preventive"
+    description: "Preventive maintenance actions"
+    types:
+      lub:
+        name: "Lubrication"
+        subtypes:
+          gre:
+            synset: "A.pre.lub.gre"
+            name: "Grease Lubrication"
+            description: "Apply grease lubricant"
+          oil:
+            synset: "A.pre.lub.oil"
+            name: "Oil Change"
+            description: "Replace lubricating oil"
+          top:
+            synset: "A.pre.lub.top"
+            name: "Top Up Oil"
+            description: "Add oil to correct level"
+      cle:
+        name: "Cleaning"
+        subtypes:
+          fil:
+            synset: "A.pre.cle.fil"
+            name: "Clean/Replace Filter"
+            description: "Clean or replace filters"
+          sur:
+            synset: "A.pre.cle.sur"
+            name: "Clean Surfaces"
+            description: "Clean machine surfaces"
+          deb:
+            synset: "A.pre.cle.deb"
+            name: "Remove Debris"
+            description: "Clear accumulated debris"
+      sch:
+        synset: "A.pre.sch"
+        name: "Scheduled Overhaul"
+        description: "Time-based preventive overhaul"
+
+  ope:
+    name: "Operational"
+    description: "Operational adjustments"
+    types:
+      red:
+        synset: "A.ope.red"
+        name: "Reduce Load"
+        description: "Decrease operating load"
+      slo:
+        synset: "A.ope.slo"
+        name: "Reduce Speed"
+        description: "Decrease operating speed"
+      stp:
+        synset: "A.ope.stp"
+        name: "Stop Machine"
+        description: "Immediate machine shutdown"
+      res:
+        synset: "A.ope.res"
+        name: "Restart Procedure"
+        description: "Follow restart procedure"
+
+  doc:
+    name: "Documentation"
+    description: "Documentation actions"
+    types:
+      rep:
+        synset: "A.doc.rep"
+        name: "Create Report"
+        description: "Document findings in report"
+      upd:
+        synset: "A.doc.upd"
+        name: "Update Records"
+        description: "Update maintenance records"
+      not:
+        synset: "A.doc.not"
+        name: "Notify"
+        description: "Notify relevant personnel"

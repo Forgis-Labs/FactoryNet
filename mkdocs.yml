@@ -1,0 +1,5 @@
+site_name: Xelerit Base Repo
+nav:
+    - Home: index.md
+theme:
+  name: material 

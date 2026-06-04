@@ -1,0 +1,21 @@
+mkdocs
+mkdocs-material
+pre-commit
+black
+isort
+flake8
+datasets
+matplotlib
+tqdm
+kagglehub
+pypdf
+internetarchive
+requests
+
+# Data pipeline dependencies
+scipy           # .mat file loading, signal processing
+pyarrow         # Parquet storage for timeseries
+numpy           # Array operations
+pyyaml          # Taxonomy YAML files
+h5py            # HDF5 file support (AURSAD dataset)
+pandas          # DataFrame operations for robot datasets
