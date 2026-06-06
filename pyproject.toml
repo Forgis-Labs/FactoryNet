@@ -1,6 +1,9 @@
 [project]
-name = "xelerit-base"
+name = "factorynet"
 version = "0.1.0"
-description = "A base repository for Xelerit projects."
-authors = ["Xelerit"]
-requires-python = ">=3.8" 
+description = "FactoryNet: A Large-Scale Dataset toward Industrial Time-Series Foundation Models"
+license = { text = "CC-BY-NC-SA-4.0" }
+authors = [
+    {name = "Forgis"},
+]
+requires-python = ">=3.8"

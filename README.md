@@ -3,6 +3,7 @@
 [![Website](https://img.shields.io/badge/Website-forgis.com-orange)](https://www.forgis.com)
 [![arXiv](https://img.shields.io/badge/arXiv-2605.09081-b31b1b)](https://arxiv.org/abs/2605.09081)
 [![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-yellow)](https://huggingface.co/datasets/factorynet/factorynet)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 **Team:** Karim Othman, Jonas Petersen, Matei Ignuta-Ciuncanu, Camilla Mazzoleni, Federico Martelli, Alessandro Lombardi, Riccardo Maggioni, Philipp Petersen
 
@@ -60,4 +61,4 @@ FactoryNet organizes all signals under a machine-agnostic, control-theoretic dec
 
 ## License
 
-Copyright (c) 2026, Forgis Labs. All rights reserved. Licensed under the [Forgis Source Code License (Non-Commercial)](LICENSE.txt).
+Copyright (c) 2026, Forgis. Licensed under [CC BY-NC-SA 4.0](LICENSE).
